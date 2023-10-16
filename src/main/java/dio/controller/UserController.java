@@ -1,6 +1,5 @@
 package dio.controller;
 
-import dio.domain.dto.UserDTO;
 import dio.domain.model.User;
 import dio.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
