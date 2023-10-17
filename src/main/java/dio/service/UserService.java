@@ -1,15 +1,17 @@
 package dio.service;
 
+import dio.domain.dto.UserDTO;
 import dio.domain.model.User;
 
 import java.util.List;
 
 public interface UserService {
 
-    User findById(Long id);
+    UserDTO findById(Long id);
     List<User> findAllUsers();
-    User create(User userToCreate);
-    User update(Long id, User user);
-    User delete(Long id);
+    UserDTO create(UserDTO userDTO);
+
+    UserDTO update(Long id, UserDTO userDTO);
+    UserDTO delete(Long id);
 
 }

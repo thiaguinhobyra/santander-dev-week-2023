@@ -10,14 +10,16 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String number;
+
+    @Column(nullable = false)
     private String agency;
 
-    @Column(scale = 2, precision = 13)
+    @Column(scale = 2, precision = 13, nullable = false)
     private BigDecimal balance;
 
-    @Column(name = "additional_limit", scale = 2, precision = 13)
+    @Column(name = "additional_limit", scale = 2, precision = 13, nullable = false)
     private BigDecimal limit;
 
     public Long getId() {

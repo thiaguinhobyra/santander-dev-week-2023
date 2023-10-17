@@ -1,5 +1,6 @@
 package dio.controller;
 
+import dio.domain.dto.UserDTO;
 import dio.domain.model.User;
 import dio.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,8 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> findById(@PathVariable Long id) {
-        var user = userService.findById(id);
+    public ResponseEntity<UserDTO> findById(@PathVariable Long id) {
+        UserDTO user = userService.findById(id);
         if (user != null) {
             return ResponseEntity.ok(user);
         } else {
@@ -36,8 +37,8 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<User> create(@RequestBody User user) {
-        var createdUser = userService.create(user);
+    public ResponseEntity<UserDTO> create(@RequestBody UserDTO userDTO) {
+        UserDTO createdUser = userService.create(userDTO);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
                 .buildAndExpand(createdUser.getId())
@@ -46,8 +47,8 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<User> update(@PathVariable Long id, @RequestBody User user) {
-        var updatedUser = userService.update(id, user);
+    public ResponseEntity<UserDTO> update(@PathVariable Long id, @RequestBody UserDTO userDTO) {
+        UserDTO updatedUser = userService.update(id, userDTO);
         if (updatedUser != null) {
             return ResponseEntity.ok(updatedUser);
         } else {

@@ -1,9 +1,6 @@
 package dio.domain.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 
 @MappedSuperclass
 public class BaseItem {
@@ -11,7 +8,10 @@ public class BaseItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String icon;
+
+    @Column(nullable = false)
     private String description;
 
     public Long getId() {
